@@ -1,0 +1,136 @@
+HW_1. The first part
+Linux terminal (GitBash) commands
+
+1) Посмотреть где я 
+pwd
+
+2) Создать папку
+mkdir folder
+
+3) Зайти в папку 
+cd folder
+
+4) Создать 3 папки
+mkdir folder1 folder2 folder3
+mkdir folder{1..3} 
+
+5) Зайти в любоую папку
+cd folder1 
+
+6) Создать 5 файлов (3 txt, 2 json)
+touch file1.txt  file2.txt  file3.txt  file4.json file5.json
+touch file{1..3}.txt file4{4..5}.json
+
+7) Создать 3 папки
+mkdir folder4 folder5 folder6
+mkdir folder{4..6}
+
+8) Вывести список содержимого папки
+ls -la
+
+9) + Открыть любой txt файл
+cat file1.txt
+
+10) + написать туда что-нибудь, любой текст.
+1) cat >> file1.txt (добавть текст)
+   Hello Mentor.
+   Нажать на Enter.
+   
+11) + сохранить и выйти.
+
+1)Нажать обязательно Enter, что бы сохранилась последния строка. 
+  Нажать сочитание кливиш Сtr+C
+
+
+12) Выйти из папки на уровень выше
+cd ..
+
+—
+13) переместить любые 2 файла, которые вы создали, в любую другую папку.
+mv folder1/file1.txt folder2/file1.txt
+mv folder1/file2.txt folder2/file2.txt
+
+mv folder1/{file1.txt,file2.txt} folder2
+
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку.
+cp folder2/file1.txt folder3/file1.txt
+cp folder2/file2.txt folder3/file2.txt
+
+cp folder2/{file1.txt,file2.txt} folder3
+
+
+15) Найти файл по имени
+find - это команда для рекурсивного поиска каталога для файлов (или каталогов).
+
+find -name file1.txt
+     
+
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает.
+Команда tail — мониторинг файла журнала (логов) в режиме реального времени.
+
+tail -f file1.txt
+
+(Команда grep - поиск записи внутри файла)
+grep line file1.txt - поиск записи в файле "line", регистра зависима
+grep -i line file1.txt - поиск записа в файле "line", без регистра зависимости 
+grep -v 1 file1.txt - показывает все строки в файле file1.txt , где нет 1
+grep -c line file1.txt - посчитать количество всех строк в файле "line", регистра зависима
+grep -ic line file1.txt - посчитать количество всех строк в файле "line", без регистра зависимости
+grep -R line file1.txt - показать все файлы с содержимым "line", так же можно и в папках  
+
+17) вывести несколько первых строк из текстового файла
+
+head -n 2 file1.txt
+
+head file1.txt - вывести первые 10 строк файла
+head -n 2 file1.txt -вывести первые 2 строк файла
+
+18) вывести несколько последних строк из текстового файла
+tail -n 2 file1.txt
+
+tail file1.txt - вывести последние 10 строк файла
+tail -n 2 file1.txt - вывести последние 2 строки файла
+
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает.
+Команда less позволяет задействовать одноименную утилиту, 
+предназначенную для постраничного вывода содержимого текстовых файлов значительного объема.
+
+less file1.txt 
+v - запустить редактор
+^ - Сtr
+Ctr+X - сохраняим имя файла
+q - выйти из режима просмотра
+
+20) вывести дату и время
+/bin/date
+date
+ 
+=========
+
+Задание *
+ 1) Отправить http запрос на сервер. http://162.55.220.72:5005/terminal-hw-request
+  1) curl http://162.55.220.72:5005/terminal-hw-request
+  2) curl "http://162.55.220.72:5005/get_method?name=<Nikita>&age=<25>"
+  3) [
+       "<Nikita>" 
+       "<25>"
+     ]
+
+ 2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+     
+1) cat>>script1.sh
+   
+2) #! /bin/bash
+   cd folder   
+   mkdir folder{1..3}
+   cd folder1
+   touch file{1..3}.txt file4{4..5}.json
+   mkdir folder{4..6}
+   ls-la
+   cd ..
+   mv folder1/{file1.txt,file2.txt} folder2
+   Entre + Ctr+c
+   
+   3) chmod +x script1.sh - сделать исполняемым
+   
+   4)./script1.sh
